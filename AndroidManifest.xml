@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.contentprovidertest"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.contentprovidertest.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <data android:mimeType="vnd.android.cursor.dir/student" />
+            </intent-filter>
+            <intent-filter>
+                <data android:mimeType="vnd.android.cursor.item/student" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="com.example.contentprovidertest.StudentProvider"
+            android:authorities="com.example.contentprovidertest" />
+
+        <activity
+            android:name="com.example.contentprovidertest.CreateStuActivity"
+            android:label="@string/title_activity_create_stu"
+            android:launchMode="singleTask" >
+        </activity>
+    </application>
+
+</manifest>
